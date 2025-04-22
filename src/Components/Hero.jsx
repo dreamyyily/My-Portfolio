@@ -66,7 +66,7 @@ const Hero = () => {
             className="pt-4"
           >
             <a
-              href="/dwilady/CV_DwiLady.pdf"
+              href="/CV_DwiLady.pdf"
               download="CV_DwiLady.pdf"
               className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-3 rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300"
             >

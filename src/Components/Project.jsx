@@ -29,10 +29,10 @@ const Projects = () => {
       demo: "#",
     },
     {
-      title: "Health Fitness Tracker",
+      title: "PKM",
       description:
-        "Mobile-first application for tracking workouts, nutrition, and health metrics",
-      tags: ["React Native", "GraphQL", "Express"],
+        "SMA Negeri 1 Balige website to display information about the school.",
+      tags: ["PHP", "CSS", "JavaScript"],
       github: "#",
       demo: "#",
     },
