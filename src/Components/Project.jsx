@@ -4,9 +4,14 @@ import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { FiFigma } from "react-icons/fi";
 import SiMBAImage from "../Images/simba.jpeg";
 import SISImage from "../Images/sis.jpeg";
+import PKMImage from "../Images/pkm.jpeg";
+import AuctionImage from "../Images/auction.jpeg";
+import DelcomImage from "../Images/delcom.jpeg";
+import WaterImage from "../Images/water.jpeg";
 
 const Projects = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [showAllProjects, setShowAllProjects] = useState(false);
 
   const projects = [
     {
@@ -15,9 +20,9 @@ const Projects = () => {
         "Student Guidance and Academic Mentoring Management System with 3 main functions : Academic Mentoring, Violations, Counseling",
       tags: ["PHP", "Laravel", "JavaScript", "CSS"],
       image: SiMBAImage,
-      github: "#",
-      demo: "#",
-      design: "#",
+      // github: "#",
+      // demo: "#",
+      // design: "#",
     },
     {
       title: "Student Information System",
@@ -25,18 +30,44 @@ const Projects = () => {
         "Web-based application designed to provide transparent and easy access for parents to monitor their child's academic and campus progress and other activities visually (dashboard).",
       tags: ["PHP"],
       image: SISImage,
-      github: "#",
-      demo: "#",
     },
     {
       title: "PKM",
       description:
         "SMA Negeri 1 Balige website to display information about the school.",
       tags: ["PHP", "CSS", "JavaScript"],
-      github: "#",
-      demo: "#",
+      image: PKMImage,
+    },
+    {
+      title: "Auctions",
+      description:
+        "A web-based auction platform designed to enable users to create item listings, place bids, and engage in real-time competitive bidding with other participants.",
+      tags: ["PHP", "CSS", "JavaScript", "Postman"],
+      image: AuctionImage,
+      github: "https://github.com/delcom-itdel/pabwe-pkm-proyek-2024-k2",
+    },
+    // Add more projects here (at least 6 in total for the demo)
+    {
+      title: "Delcom App",
+      description:
+        "Android application that has 4 views: login, register, home, update & change profile with data source from API",
+      tags: ["Kotlin", "Android"],
+      image: DelcomImage,
+      github: "https://github.com/dreamyyily/Delcom-App-Mobile",
+    },
+    {
+      title: "Water Jug Game",
+      description:
+        "A puzzle game designed to reach a certain water volume target by applying the Depth First Search (DFS) algorithm to deeply explore possible solution paths",
+      tags: ["Python"],
+      image: WaterImage,
+      github: "https://github.com/dreamyyily/Water-Jug",
+      // demo: "#",
     },
   ];
+
+  // Determine which projects to display
+  const displayedProjects = showAllProjects ? projects : projects.slice(0, 6);
 
   return (
     <section id="projects" className="py-20 px-6 max-w-[1200px] mx-auto">
@@ -54,13 +85,13 @@ const Projects = () => {
       </motion.div>
 
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project, index) => (
+        {displayedProjects.map((project, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
             className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all duration-300 flex flex-col"
           >
             <div className="h-48 bg-gray-700 overflow-hidden">
@@ -129,20 +160,22 @@ const Projects = () => {
         ))}
       </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="text-center mt-16"
-      >
-        <a
-          href="#"
-          className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300"
+      {projects.length > 6 && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-center mt-16"
         >
-          View All Projects
-        </a>
-      </motion.div>
+          <button
+            onClick={() => setShowAllProjects(!showAllProjects)}
+            className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-3 rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/30 transition-all duration-300"
+          >
+            {showAllProjects ? "Show Less" : "View All Projects"}
+          </button>
+        </motion.div>
+      )}
 
       {selectedImage && (
         <div
