@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaGraduationCap, FaCertificate } from "react-icons/fa";
+import { education, certifications } from "../data/education";
 
 const Education = () => {
   return (
@@ -17,7 +18,7 @@ const Education = () => {
         <div className="w-20 h-1 bg-gradient-to-r from-purple-500 to-pink-500 mx-auto"></div>
       </motion.div>
 
-      {/* Single Education Item */}
+      {/* Education Item */}
       <div className="flex justify-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -31,19 +32,15 @@ const Education = () => {
               <FaGraduationCap className="text-white text-xl" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white">
-                Informatics Engineering
-              </h3>
-              <p className="text-purple-300 font-medium">
-                Institut Teknologi Del
-              </p>
-              <p className="text-gray-400">2022 - Present</p>
+              <h3 className="text-xl font-bold text-white">{education.degree}</h3>
+              <p className="text-purple-300 font-medium">{education.institution}</p>
+              <p className="text-gray-400">{education.period}</p>
             </div>
           </div>
         </motion.div>
       </div>
 
-      {/* Certificates Section */}
+      {/* Certifications */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -56,45 +53,26 @@ const Education = () => {
         </h3>
 
         <div className="flex flex-col md:flex-row justify-center gap-4">
-          {/* Certificate 1 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="bg-gray-800 p-4 rounded-xl shadow-lg hover:shadow-purple-500/20 transition-all duration-300 flex items-center gap-4"
-          >
-            <div className="p-2 bg-purple-500 rounded-full">
-              <FaCertificate className="text-white text-lg" />
-            </div>
-            <div>
-              <h3 className="font-bold text-white">
-                Samsung Innovation Campus Batch6
-              </h3>
-              <p className="text-purple-300 text-sm">
-                Hacktiv8 Indonesia • 2025
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Certificate 2 */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="bg-gray-800 p-4 rounded-xl shadow-lg hover:shadow-purple-500/20 transition-all duration-300 flex items-center gap-4"
-          >
-            <div className="p-2 bg-pink-500 rounded-full">
-              <FaCertificate className="text-white text-lg" />
-            </div>
-            <div>
-              <h3 className="font-bold text-white">Research</h3>
-              <p className="text-pink-300 text-sm">
-                Institut Teknologi Del • 2024
-              </p>
-            </div>
-          </motion.div>
+          {certifications.map((cert, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.2 }}
+              className="bg-gray-800 p-4 rounded-xl shadow-lg hover:shadow-purple-500/20 transition-all duration-300 flex items-center gap-4"
+            >
+              <div className={`p-2 ${cert.color} rounded-full`}>
+                <FaCertificate className="text-white text-lg" />
+              </div>
+              <div>
+                <h3 className="font-bold text-white">{cert.title}</h3>
+                <p className="text-purple-300 text-sm">
+                  {cert.issuer} • {cert.year}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>

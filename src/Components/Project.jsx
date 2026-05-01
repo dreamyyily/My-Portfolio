@@ -1,72 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { FiFigma } from "react-icons/fi";
-import SiMBAImage from "../Images/simba.jpeg";
-import SISImage from "../Images/sis.jpeg";
-import PKMImage from "../Images/pkm.jpeg";
-import AuctionImage from "../Images/auction.jpeg";
-import DelcomImage from "../Images/delcom.jpeg";
-import WaterImage from "../Images/water.jpeg";
+import { projects } from "../data/projects";
 
 const Projects = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [showAllProjects, setShowAllProjects] = useState(false);
 
-  const projects = [
-    {
-      title: "SiMBA",
-      description:
-        "Student Guidance and Academic Mentoring Management System with 3 main functions : Academic Mentoring, Violations, Counseling",
-      tags: ["PHP", "Laravel", "JavaScript", "CSS"],
-      image: SiMBAImage,
-      // github: "#",
-      // demo: "#",
-      // design: "#",
-    },
-    {
-      title: "Student Information System",
-      description:
-        "Web-based application designed to provide transparent and easy access for parents to monitor their child's academic and campus progress and other activities visually (dashboard).",
-      tags: ["PHP"],
-      image: SISImage,
-    },
-    {
-      title: "PKM",
-      description:
-        "SMA Negeri 1 Balige website to display information about the school.",
-      tags: ["PHP", "CSS", "JavaScript"],
-      image: PKMImage,
-    },
-    {
-      title: "Auctions",
-      description:
-        "A web-based auction platform designed to enable users to create item listings, place bids, and engage in real-time competitive bidding with other participants.",
-      tags: ["PHP", "CSS", "JavaScript", "Postman"],
-      image: AuctionImage,
-      github: "https://github.com/delcom-itdel/pabwe-pkm-proyek-2024-k2",
-    },
-    // Add more projects here (at least 6 in total for the demo)
-    {
-      title: "Delcom App",
-      description:
-        "Android application that has 4 views: login, register, home, update & change profile with data source from API",
-      tags: ["Kotlin", "Android"],
-      image: DelcomImage,
-      github: "https://github.com/dreamyyily/Delcom-App-Mobile",
-    },
-    {
-      title: "Water Jug Game",
-      description:
-        "A puzzle game designed to reach a certain water volume target by applying the Depth First Search (DFS) algorithm to deeply explore possible solution paths",
-      tags: ["Python"],
-      image: WaterImage,
-      github: "https://github.com/dreamyyily/Water-Jug",
-      // demo: "#",
-    },
-  ];
-
-  // Determine which projects to display
   const displayedProjects = showAllProjects ? projects : projects.slice(0, 6);
 
   return (
@@ -94,21 +35,22 @@ const Projects = () => {
             transition={{ duration: 0.6, delay: index * 0.1 }}
             className="bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-purple-500/20 transition-all duration-300 flex flex-col"
           >
-            <div className="h-48 bg-gray-700 overflow-hidden">
-              <img
-                src={project.image}
-                alt={`Tampilan proyek ${project.title}`}
-                className="w-full h-full object-cover cursor-pointer transition-transform duration-500 hover:scale-105"
-                onClick={() => setSelectedImage(project.image)}
-              />
-            </div>
+            {project.image && (
+              <div className="h-48 bg-gray-700 overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={`Tampilan proyek ${project.title}`}
+                  className="w-full h-full object-cover cursor-pointer transition-transform duration-500 hover:scale-105"
+                  onClick={() => setSelectedImage(project.image)}
+                />
+              </div>
+            )}
 
             <div className="p-6 flex-grow">
               <h3 className="text-xl font-bold text-white mb-2">
                 {project.title}
               </h3>
               <p className="text-gray-300 mb-4">{project.description}</p>
-
               <div className="flex flex-wrap gap-2 mb-6">
                 {project.tags.map((tag, i) => (
                   <span

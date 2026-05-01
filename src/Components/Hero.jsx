@@ -51,11 +51,11 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-gray-300 max-w-[90%] md:text-lg text-md leading-relaxed"
           >
-            I design and develop clean, responsive user interfaces as a
-            Front-End Developer, and analyze system needs to craft effective
-            technical solutions as a System Analyst. I'm passionate about
-            creating digital experiences that are intuitive, functional, and
-            impactful.
+            I design and build clean, responsive web interfaces as a Front-End
+            Developer, and analyze system needs to craft effective technical
+            solutions as a System Analyst. With hands-on experience in
+            JavaScript, Nuxt.js, and RESTful APIs, I'm passionate about creating
+            intuitive digital products and growing as a Software Engineer.
           </motion.p>
 
           <motion.div
@@ -75,7 +75,7 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Image Content - Clean Version */}
+        {/* Image Content */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}

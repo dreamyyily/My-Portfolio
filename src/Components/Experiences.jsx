@@ -1,36 +1,15 @@
 import { motion } from "framer-motion";
-import { FaBriefcase, FaCode, FaChalkboardTeacher } from "react-icons/fa";
-import { MdWeb } from "react-icons/md";
+import { FaChalkboardTeacher, FaLaptopCode } from "react-icons/fa";
+import { experiences } from "../data/experiences";
+
+const iconMap = {
+  "Frontend Engineer Intern": <FaLaptopCode className="text-xl text-white" />,
+  "Student Teaching Assistant for Software Engineering": (
+    <FaChalkboardTeacher className="text-xl text-white" />
+  ),
+};
 
 const Experiences = () => {
-  const experiences = [
-    {
-      title: "Student Teaching Assistant for Software Engineering",
-      company: "Institut Teknologi Del",
-      period: "Feb 2025 - Present",
-      icon: <FaChalkboardTeacher className="text-xl" />,
-      color: "from-purple-500 to-pink-500",
-      bullets: [
-        "Assisted in teaching Software Engineering by covering key concepts such as development processes",
-        "Taught UML for system specification and documentation",
-        "Guided hands-on application of Agile methodologies, particularly Scrum",
-        "Facilitated backlog management and user story creation workshops",
-      ],
-    },
-    {
-      title: "Student Teaching Assistant for Discrete Mathematics",
-      company: "Institut Teknologi Del",
-      period: "Sep 2023 - Nov 2023",
-      icon: <FaCode className="text-xl" />,
-      color: "from-blue-500 to-cyan-500",
-      bullets: [
-        "Taught mathematical logic fundamentals relevant to computing and algorithms",
-        "Covered topics including propositional logic, predicate logic, and proof techniques",
-        "Conducted problem-solving sessions for combinatorics and graph theory",
-      ],
-    },
-  ];
-
   return (
     <section id="experiences" className="py-20 px-6 max-w-[1200px] mx-auto">
       <motion.div
@@ -57,17 +36,19 @@ const Experiences = () => {
             className="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-purple-500/20 transition-all duration-300"
           >
             <div className="flex items-start gap-4">
-              <div className={`p-3 bg-gradient-to-r ${exp.color} rounded-full`}>
-                {exp.icon}
+              <div
+                className={`p-3 bg-gradient-to-r ${exp.color} rounded-full shrink-0`}
+              >
+                {iconMap[exp.title]}
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">{exp.title}</h3>
                 <p className="text-purple-300 font-medium">{exp.company}</p>
-                <p className="text-gray-400">{exp.period}</p>
+                <p className="text-gray-400 text-sm">{exp.period}</p>
                 <ul className="mt-4 space-y-2 text-gray-300">
                   {exp.bullets.map((bullet, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <span>•</span>
+                      <span className="mt-1 text-purple-400 shrink-0">•</span>
                       <span>{bullet}</span>
                     </li>
                   ))}
