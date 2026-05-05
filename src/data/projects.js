@@ -1,3 +1,4 @@
+import HerbalyzeImage from "../Images/herbalyze.jpeg";
 import SiMBAImage from "../Images/simba.jpeg";
 import SISImage from "../Images/sis.jpeg";
 import PKMImage from "../Images/pkm.jpeg";
@@ -7,6 +8,17 @@ import WaterImage from "../Images/water.jpeg";
 
 export const projects = [
   {
+    title: "Herbalyze",
+    description:
+      "AI-powered herbal recommendation system using content-based filtering and rule-based approaches. Provides personalized recommendations based on user health data, with secure data management using blockchain, IPFS, and vector database.",
+    tags: ["React", "Python", "MySQL", "Blockchain", "IPFS", "ChromaDB"],
+    image: HerbalyzeImage, 
+    github: "https://github.com/dreamyyily/Herbalyze",
+    demo: null,
+    design: null,
+    featured: true, 
+  },
+  {
     title: "SiMBA",
     description:
       "Student Guidance and Academic Mentoring Management System with 3 main functions: Academic Mentoring, Violations, Counseling",
@@ -15,6 +27,7 @@ export const projects = [
     github: null,
     demo: null,
     design: null,
+    featured: false,
   },
   {
     title: "Student Information System",
@@ -25,6 +38,7 @@ export const projects = [
     github: null,
     demo: null,
     design: null,
+    featured: false,
   },
   {
     title: "PKM",
@@ -35,6 +49,7 @@ export const projects = [
     github: null,
     demo: null,
     design: null,
+    featured: false,
   },
   {
     title: "Auctions",
@@ -45,6 +60,7 @@ export const projects = [
     github: "https://github.com/delcom-itdel/pabwe-pkm-proyek-2024-k2",
     demo: null,
     design: null,
+    featured: false,
   },
   {
     title: "Delcom App",
@@ -55,6 +71,7 @@ export const projects = [
     github: "https://github.com/dreamyyily/Delcom-App-Mobile",
     demo: null,
     design: null,
+    featured: false,
   },
   {
     title: "Water Jug Game",
@@ -65,5 +82,6 @@ export const projects = [
     github: "https://github.com/dreamyyily/Water-Jug",
     demo: null,
     design: null,
+    featured: false,
   },
 ];
